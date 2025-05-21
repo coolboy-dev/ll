@@ -1,0 +1,233 @@
+:root {
+    --bg-color: #1a1a1a;
+    --card-bg: #252525;
+    --text-color: #ffffff;
+    --muted-text: #b0b0b0;
+    --primary-color: #4CAF50;
+    --danger-color: #F44336;
+    --card-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+    --complete-bg: rgba(76, 175, 80, 0.1);
+    --incomplete-bg: rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Progress Section */
+.progress-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--card-shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 250px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Subject Cards */
+.accordion-item {
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 15px !important;
+    overflow: hidden;
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion-item.completed {
+    background-color: var(--complete-bg);
+    border-left: 4px solid var(--primary-color);
+}
+
+.accordion-header {
+    border-radius: 15px;
+}
+
+.accordion-button {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border-radius: 15px !important;
+    font-weight: 500;
+    padding: 15px 20px;
+}
+
+.accordion-button:not(.collapsed) {
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-body {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.subject-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subject-progress {
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 4px 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.checkmark {
+    color: var(--primary-color);
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.completed .checkmark {
+    opacity: 1;
+}
+
+/* Unit Checkboxes */
+.unit-list {
+    list-style: none;
+    padding: 0;
+}
+
+.unit-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+}
+
+.unit-item:last-child {
+    border-bottom: none;
+}
+
+.unit-checkbox {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.unit-label {
+    font-size: 1.1rem;
+    cursor: pointer;
+    flex: 1;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+.btn-danger {
+    background-color: var(--danger-color);
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #d32f2f;
+}
+
+/* Completion Animation */
+@keyframes complete-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse-animation {
+    animation: complete-pulse 0.6s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chart-container {
+        max-width: 200px;
+    }
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+}
+
+.text-muted {
+    color: var(--muted-text) !important;
+}
+
+/* Tooltip styles */
+.unit-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.unit-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.unit-tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.unit-tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

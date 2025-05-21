@@ -1,0 +1,131 @@
+Hey Repl, I need a full HTML + JS progress tracker with the following:
+
+🎯 GOAL
+I'm studying for my B.Tech exams. I have 11 subjects, each with 4 units — but I only need to study 3 units per subject.
+
+📚 FEATURES
+Show all 11 subjects as collapsible sections or cards
+
+Each subject should list 4 checkboxes, one for each unit
+
+Unit titles must be shown
+
+When 3 or more units are checked for a subject, mark the subject as ✅ (visually)
+
+A real-time donut chart should track:
+
+Total units done out of 33 required units (not 44)
+
+Green = Done
+
+Red = Left
+
+Above the chart, show:
+
+java
+Copy
+Edit
+Progress: X / 33 units complete (YY%)
+🧠 CHART LOGIC
+There are 11 subjects × 3 units = 33 required units
+
+Each unit ticked counts as +1 toward progress
+
+But: Only count max 3 units per subject
+
+If user ticks all 4, ignore the 4th in the progress chart
+
+🎨 UI DESIGN
+Dark theme
+
+Background: #1a1a1a
+
+Text: White
+
+Subject cards: Rounded, soft shadows
+
+Collapsible sections preferred for clean layout
+
+Chart: Use Chart.js (or any lib you like)
+
+Save progress using localStorage if possible
+
+✅ SUBJECT LIST & UNIT NAMES:
+json
+Copy
+Edit
+{
+  "PSLP": {
+    "Unit 1": "Probability Theory",
+    "Unit 2": "Random Variables & Distributions",
+    "Unit 3": "Sampling & Estimation",
+    "Unit 4": "Hypothesis Testing & LPP"
+  },
+  "Analog Electronics": {
+    "Unit 1": "Op-Amps & Applications",
+    "Unit 2": "Comparators, Converters, Oscillators",
+    "Unit 3": "Filters & Regulators",
+    "Unit 4": "Timers & Advanced Circuits"
+  },
+  "Chemistry": {
+    "Unit 1": "Atomic Structure & Bonding",
+    "Unit 2": "Thermodynamics & Electrochemistry",
+    "Unit 3": "Polymers & Biomolecules",
+    "Unit 4": "Environmental & Industrial Chemistry"
+  },
+  "Mathematics": {
+    "Unit 1": "Differential Equations",
+    "Unit 2": "Linear Algebra",
+    "Unit 3": "Vector Calculus & PDEs",
+    "Unit 4": "Transform Methods (Laplace, Fourier)"
+  },
+  "NAS": {
+    "Unit 1": "Network Theorems",
+    "Unit 2": "Laplace Transforms & Transient Analysis",
+    "Unit 3": "Two-Port Networks",
+    "Unit 4": "Network Synthesis"
+  },
+  "MPMC": {
+    "Unit 1": "8085 Architecture & Programming",
+    "Unit 2": "8086 & Interfacing Concepts",
+    "Unit 3": "Memory & I/O Interfacing",
+    "Unit 4": "Peripheral Devices & ADC/DAC"
+  },
+  "EMFT": {
+    "Unit 1": "Electrostatics & Coordinate Systems",
+    "Unit 2": "Magnetostatics & Boundary Conditions",
+    "Unit 3": "Maxwell’s Equations & Waves",
+    "Unit 4": "Transmission Lines"
+  },
+  "Digital Communication": {
+    "Unit 1": "Baseband Transmission",
+    "Unit 2": "Modulation Techniques",
+    "Unit 3": "Noise & Detection",
+    "Unit 4": "Information Theory & Source Coding"
+  },
+  "Electrical": {
+    "Unit 1": "DC Circuits & Theorems",
+    "Unit 2": "AC Circuits & Phasors",
+    "Unit 3": "Transformers & Machines",
+    "Unit 4": "Instruments & Measurements"
+  },
+  "Physics": {
+    "Unit 1": "Wave Optics",
+    "Unit 2": "Quantum Mechanics",
+    "Unit 3": "Solid State Physics",
+    "Unit 4": "Lasers & Fiber Optics"
+  },
+  "Engineering Mechanics": {
+    "Unit 1": "Statics & Free Body Diagrams",
+    "Unit 2": "Friction & Centroid",
+    "Unit 3": "Kinetics & Kinematics",
+    "Unit 4": "Virtual Work & Impulse-Momentum"
+  }
+}
+🔥 Optional Bonus
+Add a reset button to clear all checkboxes
+
+Animate subject cards when they become ✅
+
+On hover, show how many units are ticked out of 3 needed
+
